@@ -1,0 +1,2 @@
+try to do this in console
+node main.js | node transform.js
