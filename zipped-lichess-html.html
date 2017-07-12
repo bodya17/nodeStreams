@@ -1,0 +1,1147 @@
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <!-- lichess.org is open source! Checkout the github repo: https://github.com/ornicar/lila -->
+  <head>
+    <meta charset="utf-8">
+    <title>lichess.org • Free Online Chess</title>
+    <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700|Roboto:300' rel='stylesheet'>
+    <link href="//fonts.googleapis.com/css?family=Roboto+Mono:500&text=0123456789:." rel="stylesheet">
+    
+    <link href="//lichess1.org/assets/stylesheets/common.css?v=1780" type="text/css" rel="stylesheet"/>
+    <link href="//lichess1.org/assets/stylesheets/board.css?v=1780" type="text/css" rel="stylesheet"/>
+    
+    
+    
+    
+    <link href="//lichess1.org/assets/stylesheets/home.css?v=1780" type="text/css" rel="stylesheet"/>
+    <link id="piece-sprite" href="//lichess1.org/assets/stylesheets/piece/cburnett.css?v=1780" type="text/css" rel="stylesheet"/>
+    <meta content="Free online Chess server. Play Chess now in a clean interface. No registration, no ads, no plugin required. Play Chess with the computer, friends or random opponents." name="description">
+    <link id="favicon" rel="shortcut icon" href="//lichess1.org/assets/images/favicon-32-white.png" type="image/x-icon" />
+    
+    <meta name="google" content="notranslate" />
+    <meta property="og:title" content="The best free, adless Chess server"/><meta property="og:description" content="Free online Chess server. Play Chess now in a clean interface. No registration, no ads, no plugin required. Play Chess with the computer, friends or random opponents."/><meta property="og:url" content="https://lichess.org"/><meta property="og:type" content="website"/><meta property="og:site_name" content="lichess.org"/><meta property="og:image" content="//lichess1.org/assets/images/large_tile.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="The best free, adless Chess server"/><meta name="twitter:description" content="Free online Chess server. Play Chess now in a clean interface. No registration, no ads, no plugin required. Play Chess with the computer, friends or random opponents."/><meta name="twitter:site" content="@lichessorg"/><meta name="twitter:image" content="//lichess1.org/assets/images/large_tile.png"/>
+    
+    <link href="/blog.atom" type="application/atom+xml" rel="alternate" title="Latest blog posts" />
+    
+    <link rel="mask-icon" href="//lichess1.org/assets/favicon.svg" color="black">
+    
+    <link rel="preload" href="//lichess1.org/assets/font74/fonts/lichess.woff" as="font" type="font/woff" crossorigin/>
+    <meta name="twitter:site" content="@lichessorg" />
+  </head>
+  <body class="preload base brown Woodi light Basic     "
+    
+    
+    data-sound-set="standard"
+    data-asset-url="//lichess1.org"
+    data-asset-version="1780"
+    >
+    <form id="blind_mode" action="/toggle-blind-mode" method="POST">
+      <input type="hidden" name="enable" value="1" />
+      <input type="hidden" name="redirect" value="/" />
+      <button type="submit">Accessibility: Enable blind mode</button>
+    </form>
+    <div id="site_description">Free online Chess server. Play Chess now in a clean interface. No registration, no ads, no plugin required. Play Chess with the computer, friends or random opponents.</div>
+    
+    <div id="top" class="is2d">
+      
+
+<div id="topmenu" class="hover">
+  <section>
+    <a href="/">Play</a>
+    <div>
+      <a href="/?any#hook">Create a game</a>
+      <a href="/tournament">Tournament</a>
+      <a href="/simul">Simultaneous exhibitions</a>
+    </div>
+  </section>
+  <section>
+    <a href="/training">Learn</a>
+    <div>
+      <a href="/learn">Chess basics</a>
+      <a href="/training">Puzzles</a>
+      <a href="/practice">Practice</a>
+      <a href="/training/coordinate">Coordinates</a>
+      <a href="/study">Study</a>
+      <a href="/coach">Coaches</a>
+    </div>
+  </section>
+  <section>
+    <a href="/tv">Watch</a>
+    <div>
+      <a href="/tv">Lichess TV</a>
+      <a href="/games">Current games</a>
+      <a href="/video">Video library</a>
+    </div>
+  </section>
+  <section>
+    <a href="/player">Community</a>
+    <div>
+      <a href="/player">Players</a>
+      
+      <a href="/team">Teams</a>
+      <a href="/forum">Forum</a>
+      
+      <a href="/qa">Questions &amp; Answers</a>
+    </div>
+  </section>
+  <section>
+    <a href="/analysis">Tools</a>
+    <div>
+      <a href="/analysis">Analysis board</a>
+      <a href="/editor">Board editor</a>
+      <a href="/paste">Import game</a>
+      <a href="/games/search">Advanced search</a>
+    </div>
+  </section>
+</div>
+
+      <div id="ham-plate" class="link hint--bottom" data-hint="Menu">
+        <div id="hamburger" data-icon="["></div>
+      </div>
+      
+      <div class="dasher">
+        <a class="toggle anon">
+          <span class="hint--bottom-left" data-hint="Preferences">
+            <span data-icon="%"></span>
+          </span>
+        </a>
+        <div id="dasher_app" class="dropdown"></div>
+      </div>
+      <a href="/login?referrer=/" class="signin button text">Sign in</a>
+      
+      
+      
+      
+      
+      <a id="reconnecting" class="link" onclick="window.location.reload()" data-icon="B">&nbsp;Reconnecting</a>
+    </div>
+    <div class="content is2d">
+      <div id="site_header">
+        <div id="notifications"></div>
+        <div class="board_left">
+          <h1>
+            <a id="site_title" href="/">lichess<span class="extension">.org</span></a>
+          </h1>
+          
+<a id="nb_connected_players" href="/player">
+  <strong>-,---</strong> players
+</a>
+<a id="nb_games_in_play" href="/games">
+  <span>4163</span> games in play
+</a>
+
+
+          
+          
+
+<div id="streams_on_air">
+
+</div>
+
+
+
+
+
+
+
+<a href="/tournament/5qTHOeh7"
+  class="tour_spotlight little id_5qTHOeh7 
+  Weekly Blitz standard
+  ">
+  
+  <i class="img" data-icon=")"></i>
+  
+  <span class="content">
+    <span class="name">Weekly Blitz Arena</span>
+    <span class="more">
+      5 players •
+       <time class="moment-from-now" title="12-Jul-2017" datetime="2017-07-12T17:00:00.000Z"></time> 
+    </span>
+  </span>
+</a>
+
+
+
+
+
+
+
+
+<a href="/tournament/z004BUi4"
+  class="tour_spotlight little id_z004BUi4 
+  Daily Bullet standard
+  ">
+  
+  <i class="img" data-icon="T"></i>
+  
+  <span class="content">
+    <span class="name">Daily Bullet Arena</span>
+    <span class="more">
+      0 players •
+       <time class="moment-from-now" title="12-Jul-2017" datetime="2017-07-12T16:00:00.000Z"></time> 
+    </span>
+  </span>
+</a>
+
+
+
+
+
+
+
+
+<a href="/tournament/JM4CWcfS"
+  class="tour_spotlight little id_JM4CWcfS 
+  Hourly Classical standard
+  ">
+  
+  <i class="img" data-icon="+"></i>
+  
+  <span class="content">
+    <span class="name">Scotch Game Classical Arena</span>
+    <span class="more">
+      274 players •
+       Playing right now 
+    </span>
+  </span>
+</a>
+
+
+
+
+
+
+
+          
+        </div>
+        
+        <div class="under_chat">
+<div id="featured_game">
+  
+  <a href="/tv" title="gxf3 (2568) vs LM RafixuS (2300) • 1+0" class="mini_board mini_board_2zgbcrcc parse_fen is2d live live_2zgbcrcc standard" data-live="2zgbcrcc" data-color="white" data-fen="r4rk1/pp3pbp/1q2p1p1/3p4/3P4/1P3BP1/P1PQ1PKP/1R1R4" data-lastmove="g1g2"><div class="cg-board-wrap"><div class="cg-board"></div></div></a>
+  
+<div class="vstext clearfix">
+<div class="left">
+gxf3
+<br />
+
+2568
+</div>
+<div class="right">
+RafixuS
+<br />
+2300
+ LM
+</div>
+
+<div class="center"><span data-icon="p"> 1+0</span></div>
+
+</div>
+
+  
+</div>
+</div>
+        
+      </div>
+      <div id="lichess">
+        
+<div class="lobby_and_ground">
+  
+  <div id="hooks_wrap"></div>
+  
+  <div id="start_buttons" class="lichess_ground">
+    <a class="fat button config_hook hint--bottom" href="/setup/hook" onclick="return false">Create a game</a>
+    <a class="fat button config_friend hint--bottom" href="/setup/friend" onclick="return false">Play with a friend</a>
+    <a class="fat button config_ai hint--bottom" href="/setup/ai" onclick="return false">Play with the machine</a>
+  </div>
+</div>
+
+<div id="daily_puzzle" title="Click to solve">
+   <a href="/training/daily" class="mini_board parse_fen is2d" data-color="white" data-fen="8/6k1/2PR2P1/2K4R/4r3/6r1/7p/8 w - - 0 1" data-lastmove="e8e4"><div class="cg-board-wrap"><div class="cg-board"></div></div></a>
+
+  <div class="vstext">
+    Puzzle of the day<br />
+    White to play
+  </div>
+</div>
+
+<div class="undertable">
+  <div class="undertable_top">
+    <a class="more hint--bottom" data-hint="See all tournaments" href="/tournament">More »</a>
+    <span class="title text" data-icon="g">Open tournaments</span>
+  </div>
+  <div id="enterable_tournaments" class="enterable_list undertable_inner scroll-shadow-hard">
+    
+
+<table class="tournaments">
+  
+
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/JM4CWcfS">
+      <span data-icon="+"></span>
+      Scotch Game Classical
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T14:00:00.000Z"></time></td>
+  
+  <td>1h 57m</td>
+  <td data-icon="r" class="text">274</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/3Sl6rVrF">
+      <span data-icon=")"></span>
+      U2000 Blitz
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:00:00.000Z"></time></td>
+  
+  <td>57m</td>
+  <td data-icon="r" class="text">158</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/13H2Mnpw">
+      <span data-icon="+"></span>
+      U1700 Classical
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:00:00.000Z"></time></td>
+  
+  <td>57m</td>
+  <td data-icon="r" class="text">94</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/1A7esu13">
+      <span data-icon=")"></span>
+      U1500 SuperBlitz
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:00:00.000Z"></time></td>
+  
+  <td>57m</td>
+  <td data-icon="r" class="text">56</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/KEiDGdZw">
+      <span data-icon=")"></span>
+      Hourly Blitz
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:00:00.000Z"></time></td>
+  
+  <td>57m</td>
+  <td data-icon="r" class="text">136</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/nYKlkJYP">
+      <span data-icon=")"></span>
+      Hourly SuperBlitz
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:00:00.000Z"></time></td>
+  
+  <td>57m</td>
+  <td data-icon="r" class="text">206</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/Ox06vyDv">
+      <span data-icon=""></span>
+      Crazyhouse Bullet
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:30:00.000Z"></time></td>
+  
+  <td>27m</td>
+  <td data-icon="r" class="text">0</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/ISAzs1lG">
+      <span data-icon="T"></span>
+      Hourly Bullet
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:30:00.000Z"></time></td>
+  
+  <td>27m</td>
+  <td data-icon="r" class="text">0</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/WywgsnfU">
+      <span data-icon="{"></span>
+      Hourly UltraBullet
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T15:30:00.000Z"></time></td>
+  
+  <td>27m</td>
+  <td data-icon="r" class="text">0</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/z004BUi4">
+      <span data-icon="T"></span>
+      Daily Bullet
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T16:00:00.000Z"></time></td>
+  
+  <td>1h</td>
+  <td data-icon="r" class="text">0</td>
+</tr>
+
+<tr  class="scheduled" >
+  <td class="name">
+    <a class="text" href="/tournament/5qTHOeh7">
+      <span data-icon=")"></span>
+      Weekly Blitz
+    </a>
+  </td>
+  
+  <td><time class="moment-from-now" datetime="2017-07-12T17:00:00.000Z"></time></td>
+  
+  <td>3h</td>
+  <td data-icon="r" class="text">5</td>
+</tr>
+
+
+  
+
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/GOCCK65R">
+      <span data-icon="@"></span>
+      Aronian
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">1+0</span>
+     Anti 
+    
+    <span class="trans_me">Rated</span>
+    
+  </td>
+  
+  <td>1h 40m</td>
+  <td data-icon="r" class="text">33</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/IFURougY">
+      <span data-icon="."></span>
+      Petrov
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">1+0</span>
+     3check 
+    
+    <span class="trans_me">Rated</span>
+    
+  </td>
+  
+  <td>45m</td>
+  <td data-icon="r" class="text">16</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/LKWjSZBp">
+      <span data-icon="@"></span>
+      Donner
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">2+2</span>
+     Anti 
+    
+    <span class="trans_me">Rated</span>
+    
+  </td>
+  
+  <td>1h 40m</td>
+  <td data-icon="r" class="text">10</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/yc7G717g">
+      <span data-icon="+"></span>
+      Sjugirov
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">7+2</span>
+    
+    
+    <span class="trans_me">Rated</span>
+    
+  </td>
+  
+  <td>2h</td>
+  <td data-icon="r" class="text">11</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/ZiQDhFBL">
+      <span data-icon="+"></span>
+      Biyiasas
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">7+2</span>
+    
+    
+    <span class="trans_me">Rated</span>
+    
+  </td>
+  
+  <td>1h</td>
+  <td data-icon="r" class="text">4</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/BdLVrvrO">
+      <span data-icon=")"></span>
+      Tan
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">5+0</span>
+    
+    
+  </td>
+  
+  <td>45m</td>
+  <td data-icon="r" class="text">4</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/IsDXNVe7">
+      <span data-icon="&gt;"></span>
+      Kieseritzky
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">½+0</span>
+     Atom 
+    
+    <span class="trans_me">Rated</span>
+    
+  </td>
+  
+  <td>1h 20m</td>
+  <td data-icon="r" class="text">2</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/GSC3tOli">
+      <span data-icon="&gt;"></span>
+      Flamberg
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">¼+0</span>
+     Atom 
+    
+  </td>
+  
+  <td>1h 30m</td>
+  <td data-icon="r" class="text">1</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/TfazcJFW">
+      <span data-icon="&gt;"></span>
+      Alekseev
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">¼+0</span>
+     Atom 
+    
+  </td>
+  
+  <td>1h 40m</td>
+  <td data-icon="r" class="text">1</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/GQPbhwaH">
+      <span data-icon=")"></span>
+      Gunina
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">5+0</span>
+    
+    
+  </td>
+  
+  <td>45m</td>
+  <td data-icon="r" class="text">1</td>
+</tr>
+
+<tr >
+  <td class="name">
+    <a class="text" href="/tournament/OezMXPEW">
+      <span data-icon=")"></span>
+      Osnos
+    </a>
+  </td>
+  
+  <td class="small">
+    <span class="text" data-icon="p">4+1</span>
+    
+    
+    <span class="trans_me">Rated</span>
+    
+  </td>
+  
+  <td>40m</td>
+  <td data-icon="r" class="text">7</td>
+</tr>
+
+
+</table>
+
+  </div>
+</div>
+<div class="undertable ">
+  <div class="undertable_top">
+    <a class="more hint--bottom" href="/simul">More »</a>
+    <span class="title text" data-icon="|">Simultaneous exhibitions</span>
+  </div>
+  <div id="enterable_simuls" class="enterable_list undertable_inner">
+    
+
+<table class="tournaments">
+  
+  <tr>
+    <td class="name">
+      <a class="text" href="/simul/tlEd86ZZ">
+        
+        <span class="is-gold" data-icon="+"></span>
+        
+        Rhenium simul
+      </a>
+    </td>
+    <td>
+      <a class="user_link ulpt online" href="/@/SunWatAir57"><i class="line"></i>SunWatAir57</a>
+    </td>
+    <td class="small">
+      <span class="text" data-icon="p">5+60</span>
+    </td>
+    <td class="text" data-icon="r">1</td>
+    <td>
+      <a href="/simul/tlEd86ZZ" class="button" data-icon="G"></a>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="name">
+      <a class="text" href="/simul/Mj8cK3a2">
+        
+        <span class="is-gold" data-icon=")"></span>
+        
+        Arsenic simul
+      </a>
+    </td>
+    <td>
+      <a class="user_link ulpt online" href="/@/krm06"><i class="line"></i>krm06</a>
+    </td>
+    <td class="small">
+      <span class="text" data-icon="p">5+0</span>
+    </td>
+    <td class="text" data-icon="r">1</td>
+    <td>
+      <a href="/simul/Mj8cK3a2" class="button" data-icon="G"></a>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="name">
+      <a class="text" href="/simul/O0AmLovj">
+        
+        <span class="is-gold" data-icon="+"></span>
+        
+        Livermorium simul
+      </a>
+    </td>
+    <td>
+      <a class="user_link ulpt online" href="/@/mrstarwars"><i class="line"></i>mrstarwars</a>
+    </td>
+    <td class="small">
+      <span class="text" data-icon="p">10+2</span>
+    </td>
+    <td class="text" data-icon="r">0</td>
+    <td>
+      <a href="/simul/O0AmLovj" class="button" data-icon="G"></a>
+    </td>
+  </tr>
+  
+</table>
+
+  </div>
+</div>
+<div class="leaderboards undertable">
+  <div class="leaderboard">
+    <div class="user_top">
+      <div class="undertable_top">
+        <a class="more hint--bottom" data-hint="Players" href="/player">More »</a>
+        <span class="title text" data-icon="C">Leaderboard</span>
+      </div>
+      <div class="undertable_inner scroll-shadow-hard">
+        <table>
+          <tbody>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/penguingim1"><i class="line patron" title="lichess Patron"></i><span class="title" title="International Master">IM</span>&nbsp;penguingim1</a></td>
+              
+              <td data-icon="T">3158</td>
+              
+              <td><span  class="progress"><span class="positive" data-icon="N">32</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/BeepBeepImAJeep"><i class="line"></i><span class="title" title="International Master">IM</span>&nbsp;BeepBeepImAJeep</a></td>
+              
+              <td data-icon=")">2934</td>
+              
+              <td><span  class="progress"><span class="positive" data-icon="N">29</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt online" href="/@/opperwezen"><i class="line"></i><span class="title" title="International Master">IM</span>&nbsp;opperwezen</a></td>
+              
+              <td data-icon="+">2712</td>
+              
+              <td><span  class="progress"><span class="negative" data-icon="M">34</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/penguingim1"><i class="line patron" title="lichess Patron"></i><span class="title" title="International Master">IM</span>&nbsp;penguingim1</a></td>
+              
+              <td data-icon="{">2563</td>
+              
+              <td><span  class="progress"><span class="negative" data-icon="M">11</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/cren"><i class="line"></i>cren</a></td>
+              
+              <td data-icon="">2767</td>
+              
+              <td><span  class="progress"><span class="positive" data-icon="N">12</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt online" href="/@/opperwezen"><i class="line"></i><span class="title" title="International Master">IM</span>&nbsp;opperwezen</a></td>
+              
+              <td data-icon="&#x27;">2594</td>
+              
+              <td><span  class="progress"><span class="negative" data-icon="M">39</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/Alola"><i class="line"></i>Alola</a></td>
+              
+              <td data-icon="(">2507</td>
+              
+              <td><span  class="progress"><span class="negative" data-icon="M">31</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/FischyVishy"><i class="line patron" title="lichess Patron"></i>FischyVishy</a></td>
+              
+              <td data-icon=".">2424</td>
+              
+              <td><span  class="progress"><span class="positive" data-icon="N">35</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/Bulletproof91"><i class="line"></i>Bulletproof91</a></td>
+              
+              <td data-icon="@">2532</td>
+              
+              <td><span  class="progress"><span class="negative" data-icon="M">27</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/fast-tsunami"><i class="line"></i><span class="title" title="Lichess Master">LM</span>&nbsp;fast-tsunami</a></td>
+              
+              <td data-icon="&gt;">2598</td>
+              
+              <td><span  class="progress"><span class="negative" data-icon="M">66</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt online" href="/@/Ingrid-Vengeance"><i class="line"></i>Ingrid-Vengeance</a></td>
+              
+              <td data-icon="_">2533</td>
+              
+              <td><span  class="progress"><span class="positive" data-icon="N">18</span></span></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/mohammadreza-s"><i class="line"></i>mohammadreza-s</a></td>
+              
+              <td data-icon="">2430</td>
+              
+              <td><span  class="progress"><span class="positive" data-icon="N">16</span></span></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="leaderboard">
+    <div class="user_top">
+      <div class="undertable_top">
+        <a class="more hint--bottom" href="/tournament/leaderboard">More »</a>
+        <span class="title" data-icon="g"> Tournament winners</span>
+      </div>
+      <div class="undertable_inner scroll-shadow-hard">
+        <table>
+          <tbody>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/NicolaiJorgensen"><i class="line"></i>NicolaiJorgensen</a></td>
+              <td><a title="Yearly HyperBullet" href="/tournament/zogLQ7bJ">Yearly H<span data-icon="T"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt online" href="/@/opperwezen"><i class="line"></i><span class="title" title="International Master">IM</span>&nbsp;opperwezen</a></td>
+              <td><a title="Yearly Bullet" href="/tournament/O55bZ7wy">Yearly <span data-icon="T"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/pozvonochek"><i class="line"></i><span class="title" title="International Master">IM</span>&nbsp;pozvonochek</a></td>
+              <td><a title="Yearly SuperBlitz" href="/tournament/jK90FWa9">Yearly S<span data-icon=")"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/Lance5500"><i class="line patron" title="lichess Patron"></i><span class="title" title="Lichess Master">LM</span>&nbsp;Lance5500</a></td>
+              <td><a title="Yearly Blitz" href="/tournament/mbjB9g3w">Yearly <span data-icon=")"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt online" href="/@/opperwezen"><i class="line"></i><span class="title" title="International Master">IM</span>&nbsp;opperwezen</a></td>
+              <td><a title="Yearly Classical" href="/tournament/1DQn466k">Yearly <span data-icon="+"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/gripen"><i class="line"></i>gripen</a></td>
+              <td><a title="Elite SuperBlitz" href="/tournament/0U0Vciky">Elite S<span data-icon=")"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/Lance5500"><i class="line patron" title="lichess Patron"></i><span class="title" title="Lichess Master">LM</span>&nbsp;Lance5500</a></td>
+              <td><a title="2017 Spring Marathon" href="/tournament/spring17">2017 Spring <span data-icon="\"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/littleplotkin"><i class="line"></i>littleplotkin</a></td>
+              <td><a title="Yearly Crazyhouse" href="/tournament/vTyu10sU">Yearly <span data-icon=""></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt online" href="/@/ShahMatKanal"><i class="line"></i><span class="title" title="Lichess Master">LM</span>&nbsp;ShahMatKanal</a></td>
+              <td><a title="Monthly Chess960" href="/tournament/WQtTnZde">Monthly <span data-icon="'"></span></a></td>
+            </tr>
+            
+            <tr>
+              <td><a class="user_link ulpt offline" href="/@/StrokL"><i class="line"></i>StrokL</a></td>
+              <td><a title="Monthly King of the Hill" href="/tournament/01e3s22D">Monthly <span data-icon="("></span></a></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="new_posts undertable" data-url="/forum/recent">
+  <div class="undertable_top">
+    <a class="more hint--bottom" data-hint="Forum" href="/forum">More »</a>
+    <span class="title" data-icon="d"> Latest forum posts</span>
+  </div>
+  <div class="undertable_inner scroll-shadow-hard">
+    <div class="content">
+      <ol>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/ZdNu33xE" title="Let&#39;s play the &quot;sacred and divine transcendence&quot; game"> Let&#39;s play the &quot;sacred and div…</a>
+  <a class="user_link ulpt" href="/@/fjachess">fjachess</a>
+  <span class="extract">Can we please start a GoFundme or something gathering lots of money in…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/tkmbjOoJ" title="amazing Nxb5 sacrifice in sicilian najdorf"> amazing Nxb5 sacrifice in sici…</a>
+  <a class="user_link ulpt" href="/@/mCoombes314">mCoombes314</a>
+  <span class="extract">The thing I find amazing about this is that someone resigned in a bull…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/rjhfik3a" title="Stockfish 1 offline vs online "> Stockfish 1 offline vs online </a>
+  <a class="user_link ulpt" href="/@/Irishman964">Irishman964</a>
+  <span class="extract">@Luciano_the_best I thought I was the only one!</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/MYfGwUwI" title="How to play against Slav?"> How to play against Slav?</a>
+  <a class="user_link ulpt" href="/@/mathtuition88">mathtuition88</a>
+  <span class="extract">Thanks @Peristilo !  Just curious, any line in which White can do a …</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/rRlQKLBI" title="Getting better on the board, Off the board."> Getting better on the board, O…</a>
+  <a class="user_link ulpt" href="/@/Paulcarrero">Paulcarrero</a>
+  <span class="extract">I think that if you keep yourself busy with some activities that requi…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/8aFfnBor" title="Stockfish 1 offline vs online "> Stockfish 1 offline vs online </a>
+  <a class="user_link ulpt" href="/@/seanysean">seanysean</a>
+  <span class="extract">If you are referring to the mobile app, then definitely :) </span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/X8L1MFZg" title="Stockfish 1 offline vs online "> Stockfish 1 offline vs online </a>
+  <a class="user_link ulpt" href="/@/Luciano_the_best">Luciano_the_best</a>
+  <span class="extract">I noticed that when you play against stockfish 1 in offline mode it is…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/6JMTWwmI" title="How to play against Slav?"> How to play against Slav?</a>
+  <a class="user_link ulpt" href="/@/Peristilo">Peristilo</a>
+  <span class="extract">The easiest way is to play the exchange slav. You won&#39;t need to learn …</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/uz7HsfHn" title="What the hell is going on?"> What the hell is going on?</a>
+  <a class="user_link ulpt" href="/@/Paulcarrero">Paulcarrero</a>
+  <span class="extract">Nobody is as confused for the position as for your comment.</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/XPD1Z0hp" title="How to play against Slav?"> How to play against Slav?</a>
+  <a class="user_link ulpt" href="/@/mathtuition88">mathtuition88</a>
+  <span class="extract">https://lichess.org/c5e7EmLt/white#7  https://lichess.org/LCAcrI9u/w…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/hmcZixNj" title="Feature request: More diversity on first move for higher levels "> Feature request: More diversit…</a>
+  <a class="user_link ulpt" href="/@/Snuffington">Snuffington</a>
+  <span class="extract">You can go to board editor and play white&#39;s first move, then click con…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/XJoT6ol6" title="Feature request: More diversity on first move for higher levels "> Feature request: More diversit…</a>
+  <a class="user_link ulpt" href="/@/HowDoIChess96">HowDoIChess96</a>
+  <span class="extract">On Lichess mobile app, Stockfish 7 and 8 almost exclusively start with…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/KI3hGDi6" title="Post puzzles here"> Post puzzles here</a>
+  <a class="user_link ulpt" href="/@/millin">millin</a>
+  <span class="extract">In the forum a new category of topic POST PUZZLES HERE may be introduc…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/RjuWb1yI" title=" Stockfish won&#39;t show me evaluation or lines if I choose &quot;request computer analysis&quot; on android">  Stockfish won&#39;t show me evalu…</a>
+  <a class="user_link ulpt" href="/@/MrLegilimens">MrLegilimens</a>
+  <span class="extract">Can you take a screenshot on your phone and upload it?</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/aTIOCGjN" title="How to change my name?"> How to change my name?</a>
+  <a class="user_link ulpt" href="/@/Toadofsky">Toadofsky</a>
+  <span class="extract">Your name is the primary key of a database collection and is immutable…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/53LBRF3U" title="How to change my name?"> How to change my name?</a>
+  <a class="user_link ulpt" href="/@/chessgator">chessgator</a>
+  <span class="extract">Hi, how do I get my name changed from &quot;chessgator&quot; to &quot;ChessGator&quot; ?? …</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/S6KcxPDg" title="Let&#39;s play the &quot;disconnection&quot; game"> Let&#39;s play the &quot;disconnection&quot;…</a>
+  <a class="user_link ulpt" href="/@/fjachess">fjachess</a>
+  <span class="extract">Idiot</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/VeeG9kyP" title="amazing Nxb5 sacrifice in sicilian najdorf"> amazing Nxb5 sacrifice in sici…</a>
+  <a class="user_link ulpt" href="/@/Kitty-Meow">Kitty-Meow</a>
+  <span class="extract">this looks familiar! WTF batilogski</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/fZzDIKvT" title="a lot of time this happen to me ... not understanding Engine Evaluations"> a lot of time this happen to m…</a>
+  <a class="user_link ulpt" href="/@/FireStorm-e4">FireStorm-e4</a>
+  <span class="extract">Dear tpr ; I want to understand the reason of this moves to improve m…</span>
+</li>
+
+<li>
+  <a  class="post_link" href="/forum/redirect/post/VNwDOAbw" title="amazing Nxb5 sacrifice in sicilian najdorf"> amazing Nxb5 sacrifice in sici…</a>
+  <a class="user_link ulpt" href="/@/tpr">tpr</a>
+  <span class="extract">There has been a thread on this game. It is amazing that this is a bu…</span>
+</li>
+
+</ol>
+    </div>
+  </div>
+</div>
+
+
+<div class="blog undertable">
+  <div class="undertable_top">
+    <a class="more hint--bottom" data-hint="Blog" href="/blog">More »</a>
+    <span class="title" data-icon="6"> Latest updates</span>
+  </div>
+  <div class="undertable_inner">
+    
+    <div class="post">
+      
+      <a class="image" href="/blog/WUab3iUAAFcO1pLa/aronian-wins-altibox-norway-chess-2017">
+        <img src="https://d27t3nufpewl0w.cloudfront.net/lichess/091eefb0e9bc621250e1408ee555ee77a37d7689_levon.jpg" width="60" height="60" />
+      </a>
+      <div class="text">
+        <time datetime="2017-06-18T00:00:00.000Z">18-Jun-2017</time>
+        <a class="title" href="/blog/WUab3iUAAFcO1pLa/aronian-wins-altibox-norway-chess-2017">Aronian wins Altibox Norway Chess 2017</a>
+        <p class="shortlede">The highlights of the final two rounds</p>
+      </div>
+      
+    </div>
+    
+    <div class="post">
+      
+      <a class="image" href="/blog/WUKVXCYAACYAPH8D/norway-chess-the-final-run-up">
+        <img src="https://d27t3nufpewl0w.cloudfront.net/lichess/1df62bd468e99fda7642d130589c89b0baa9bced_screen-shot-2017-06-15-at-16.33.01.png" width="60" height="60" />
+      </a>
+      <div class="text">
+        <time datetime="2017-06-15T00:00:00.000Z">15-Jun-2017</time>
+        <a class="title" href="/blog/WUKVXCYAACYAPH8D/norway-chess-the-final-run-up">Norway Chess: The final run-up</a>
+        <p class="shortlede">We bring you the highlights of the last two rounds</p>
+      </div>
+      
+    </div>
+    
+    <div class="post">
+      
+      <a class="image" href="/blog/WT1w1yQAAJUAflKv/norway-chess-the-off-day-brings-exciting-chess">
+        <img src="https://d27t3nufpewl0w.cloudfront.net/lichess/0a3089596235e5b5e5fbde2bdee054c62ae0888b_img_2264.jpg" width="60" height="60" />
+      </a>
+      <div class="text">
+        <time datetime="2017-06-11T00:00:00.000Z">11-Jun-2017</time>
+        <a class="title" href="/blog/WT1w1yQAAJUAflKv/norway-chess-the-off-day-brings-exciting-chess">Norway chess: the off-day brings exciting chess</a>
+        <p class="shortlede">Two completely different rounds separated by the off-day.</p>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="donation undertable">
+  <a href="/patron">
+    <i data-icon=""></i>
+    <strong>Lichess Patron</strong>
+    <span>Directly support Lichess</span>
+  </a>
+  <a href="/swag">
+    <i data-icon=""></i>
+    <strong>Swag Store</strong>
+    <span>Play chess in style</span>
+  </a>
+</div>
+
+      </div>
+    </div>
+    
+    
+    
+    <script async defer src="//lichess1.org/assets/compiled/lichess.site.min.js?v=1780"></script>
+    
+<script async defer src="//lichess1.org/assets/compiled/lichess.lobby.min.js?v=1780"></script>
+<script>
+window.customWS = true;
+lichess_lobby = {
+data: {"me":null,"seeks":[{"id":"tSs8EKrm","username":"paulll","rating":2151,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":14,"color":"","perf":{"icon":";","name":"Correspondence"}},{"id":"sPpxAp3S","username":"masalatkin","rating":1980,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":2,"color":"","perf":{"icon":";","name":"Correspondence"}},{"id":"I2GtHMZT","username":"rodolfo322","rating":1500,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":2,"color":"white","perf":{"icon":";","name":"Correspondence"},"provisional":true},{"id":"PvlT9POd","username":"atdotslashdot","rating":1726,"variant":{"key":"antichess","short":"Anti","name":"Antichess"},"mode":1,"days":5,"color":"","perf":{"icon":"@","name":"Antichess"}},{"id":"y0ratpGH","username":"rodolfo322","rating":1500,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":2,"color":"white","perf":{"icon":";","name":"Correspondence"},"provisional":true},{"id":"nCt60HWK","username":"rodolfo322","rating":1500,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":2,"color":"white","perf":{"icon":";","name":"Correspondence"},"provisional":true},{"id":"hgQCOv5V","username":"Deadly_Intentions","rating":1500,"variant":{"key":"chess960","short":"960","name":"Chess960"},"mode":1,"days":2,"color":"","perf":{"icon":"'","name":"Chess960"},"provisional":true},{"id":"iHbJ1DHz","username":"se2017","rating":1498,"variant":{"key":"threeCheck","short":"3check","name":"Three-check"},"mode":1,"days":1,"color":"","perf":{"icon":".","name":"Three-check"},"provisional":true},{"id":"CWDNZAkI","username":"rodolfo322","rating":1500,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":2,"color":"white","perf":{"icon":";","name":"Correspondence"},"provisional":true},{"id":"399yV0i4","username":"doxob","rating":1882,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":1,"color":"","perf":{"icon":";","name":"Correspondence"}},{"id":"lMNpUrGw","username":"doxob","rating":1882,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":1,"color":"","perf":{"icon":";","name":"Correspondence"}},{"id":"X29ezedH","username":"intermediate1","rating":1651,"variant":{"key":"standard","short":"Std","name":"Standard"},"mode":1,"days":14,"color":"","perf":{"icon":";","name":"Correspondence"}},{"id":"GFz1dwTx","username":"Konslon","rating":1565,"variant":{"key":"chess960","short":"960","name":"Chess960"},"mode":0,"days":1,"color":"","perf":{"icon":"'","name":"Chess960"},"provisional":true}],"nowPlaying":[],"nbNowPlaying":0,"filter":{"variant":["standard","chess960","kingOfTheHill","threeCheck","antichess","atomic","horde","racingKings","crazyhouse"],"mode":[0,1],"speed":[0,1,2,3,4],"rating":null},"pools":[{"id":"1+0","lim":1,"inc":0,"perf":"Bullet"},{"id":"2+1","lim":2,"inc":1,"perf":"Bullet"},{"id":"3+0","lim":3,"inc":0,"perf":"Blitz"},{"id":"3+2","lim":3,"inc":2,"perf":"Blitz"},{"id":"5+0","lim":5,"inc":0,"perf":"Blitz"},{"id":"5+3","lim":5,"inc":3,"perf":"Blitz"},{"id":"10+0","lim":10,"inc":0,"perf":"Classical"},{"id":"15+15","lim":15,"inc":15,"perf":"Classical"}]},
+playban: null,
+currentGame: null,
+i18n: 
+{"realTime":"Real time","correspondence":"Correspondence","nbGamesInPlay:one":"%s game in play","nbGamesInPlay":"%s games in play","player":"Player","time":"Time","joinTheGame":"Join the game","cancel":"Cancel","casual":"Casual","rated":"Rated","variant":"Variant","mode":"Mode","list":"List","graph":"Graph","filterGames":"Filter games","youNeedAnAccountToDoThat":"You need an account to do that","oneDay":"One day","nbDays:one":"%s day","nbDays":"%s days","aiNameLevelAiLevel":"%1$s level %2$s","yourTurn":"Your turn","rating":"Rating","createAGame":"Create a game","quickPairing":"Quick pairing","lobby":"Lobby","custom":"Custom"}
+
+};
+</script>
+
+    <script>
+    lichess.quantity = function(c) {
+      return (c == 1) ? 'one' : 'other';
+      };
+    
+    </script>
+  </body>
+</html>
+
